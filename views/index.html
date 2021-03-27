@@ -1,0 +1,46 @@
+<!-- This is a static file -->
+<!-- served from routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="File upload with Multer">
+
+    <title>Upload file</title>
+
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Upload your file</h1>
+    </header>
+
+    <main>
+      <h2>You're almost there!</h2>
+      <p>Now send us your supporting document :</p>
+
+      <form
+          enctype="multipart/form-data"
+          method="POST"
+          action="/file-upload"
+        >
+          <input id="fileup" type="file" name="fileupload" />
+          <input id="uploadbutton" type="submit" value="Upload" />
+        </form>     
+    </main>
+
+    <footer>Built by Mamun <a href="https://github.com/tradecoder">@tradecoder</a>!</footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:2em;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js" defer></script>
+  </body>
+</html>
