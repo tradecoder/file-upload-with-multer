@@ -1,6 +1,6 @@
 # File Upload With Multer
 
-## Sever code
+## Server code
 
 ```javascript
 'use strict';
