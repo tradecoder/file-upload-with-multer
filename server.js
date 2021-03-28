@@ -11,7 +11,19 @@ app.use(cors());
 // require and use "multer"...
 
 const multer = require("multer");
-const storage  = multer.memoryStorage();
+const { diskStorage } = require("multer");
+// const storage  = multer.memoryStorage();
+// multer memory storage keeps file with binary data, not images or other file format
+
+// multer disk storage keeps file in a folder in original
+// creating file upload folder before using diskStorage to avoid server crash
+ multer({dest:'uploads/'});
+
+// diskStorage is not creating any folder, so the above line is added to create a folder
+// then used the diskStorage
+const storage  = diskStorage({
+  destination: 'uploads/',
+  filename:(req, file, cb)=>cb(null, (Date.now()+"-"+file.originalname))})
 const upload = multer({storage:storage});
 
 
@@ -36,6 +48,6 @@ app.post("/file-upload", upload.single("fileupload"), (req, res)=>{
 
 
 // listen for requests
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(process.env.PORT || 3000, () => {
   console.log("App is listening on port " + listener.address().port);
 });
